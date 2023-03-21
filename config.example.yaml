@@ -1,0 +1,5 @@
+mollie_api_key: YOUR_MOLLIE_API_KEY_HERE
+mysql_host: localhost
+mysql_user: your_mysql_username
+mysql_password: your_mysql_password
+mysql_database: your_mysql_database_name
