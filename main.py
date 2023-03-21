@@ -12,10 +12,10 @@ MYSQL_HOST = config['mysql_host']
 MYSQL_USER = config['mysql_user']
 MYSQL_PASSWORD = config['mysql_password']
 MYSQL_DATABASE = config['mysql_database']
-
+limit = 250  # Maximum number of customers to retrieve per request
 # Define Mollie API endpoint and initial parameters
 MOLLIE_API_ENDPOINT = 'https://api.mollie.com/v2/customers'
-params = {'limit': 50}  # Maximum number of customers to retrieve per request
+params = {'limit': limit}  # Maximum number of customers to retrieve per request
 
 # Connect to MySQL database
 cnx = mysql.connector.connect(host=MYSQL_HOST, user=MYSQL_USER, password=MYSQL_PASSWORD, database=MYSQL_DATABASE)
@@ -49,7 +49,7 @@ while True:
     if 'next' in response.json()['_links']:
         next_url = response.json()['_links']['next']['href']
         params = {'from': response.json()['_embedded']['customers'][-1]['id'],
-                  'limit': 50}  # Set 'from' parameter to the ID of the last customer retrieved
+                  'limit': limit}  # Set 'from' parameter to the ID of the last customer retrieved
     else:
         break
 
