@@ -2,7 +2,7 @@ certifi==2026.1.4
 charset-normalizer==3.4.4
 idna==3.11
 mysql-connector-python==9.6.0
-protobuf==6.33.5
+protobuf==7.34.1
 PyYAML==6.0.3
 requests==2.33.0
 urllib3==2.6.3
